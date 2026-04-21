@@ -4,14 +4,21 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Transaction {
-    private final TransactionType type;
-    private final BigDecimal amount;
-    private final LocalDateTime timestamp;
 
-    public Transaction(TransactionType type, BigDecimal amount, LocalDateTime timestamp) {
+    private String accountNumber;
+    private TransactionType type;
+    private BigDecimal amount;
+    private LocalDateTime timestamp;
+
+    public Transaction(String accountNumber, TransactionType type, BigDecimal amount, LocalDateTime timestamp) {
+        this.accountNumber = accountNumber;
         this.type = type;
         this.amount = amount;
         this.timestamp = timestamp;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
     public TransactionType getType() {

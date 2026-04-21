@@ -1,4 +1,4 @@
 accountNumber,pin,balance,failedLoginAttempts,locked
-1001001,1234,1630.75,0,false
-1001002,4321,2450.50,0,false
+1001001,1234,11630.75,0,false
+1001002,4321,2450.50,3,true
 1001003,1111,500.00,0,false
