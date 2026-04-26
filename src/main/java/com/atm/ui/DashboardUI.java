@@ -19,7 +19,7 @@ public class DashboardUI {
     public DashboardUI(Account account, ATMService atmService, AuthenticationService authService) {
 
         JFrame frame = new JFrame("ATM Dashboard");
-        frame.setSize(600, 600); // 🔥 increased frame size to fit 500 width properly
+        frame.setSize(600, 600);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -62,12 +62,11 @@ public class DashboardUI {
         frame.add(panel);
         frame.setVisible(true);
 
-        // 💰 CHECK BALANCE
+       
         balanceBtn.addActionListener(e ->
                 JOptionPane.showMessageDialog(frame, "Your Balance: ₹ " + account.getBalance())
         );
 
-        // 💸 DEPOSIT
         depositBtn.addActionListener(e -> {
             String input = JOptionPane.showInputDialog(frame, "Enter deposit amount:");
 
@@ -86,7 +85,7 @@ public class DashboardUI {
             }
         });
 
-        // 💳 WITHDRAW
+  
         withdrawBtn.addActionListener(e -> {
             String input = JOptionPane.showInputDialog(frame, "Enter withdrawal amount:");
 
@@ -125,14 +124,14 @@ public class DashboardUI {
             JOptionPane.showMessageDialog(frame, history.toString());
         });
 
-        // 🚪 LOGOUT
+
         logoutBtn.addActionListener(e -> {
             frame.dispose();
             new ATMGUI();
         });
     }
 
-    // ⭐ THIS is what actually controls width in BoxLayout
+
     private JButton createButton(String text) {
         JButton btn = new JButton(text);
         btn.setBackground(BTN);
@@ -140,7 +139,7 @@ public class DashboardUI {
         btn.setFocusPainted(false);
         btn.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
-        btn.setMaximumSize(new Dimension(500, 45)); // 🔥 THIS makes width = 500
+        btn.setMaximumSize(new Dimension(500, 45)); 
         btn.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         return btn;
