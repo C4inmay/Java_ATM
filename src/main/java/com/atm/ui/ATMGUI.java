@@ -17,7 +17,7 @@ public class ATMGUI {
 
     public static void main(String[] args) {
 
-        // 🔥 CONNECT TO DATABASE
+
         DBAccountRepository repo = new DBAccountRepository();
 
         AuthenticationService authService = new AuthenticationService(repo, 3);
@@ -44,31 +44,28 @@ public class ATMGUI {
         gbc.insets = new Insets(12, 10, 12, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // 🏦 Account Label
+
         gbc.gridx = 0; gbc.gridy = 0;
         JLabel accLabel = new JLabel("Account Number:");
         accLabel.setForeground(Color.WHITE);
         form.add(accLabel, gbc);
 
-        // 🏦 Account Field
         gbc.gridx = 1;
         JTextField accountField = new JTextField(15);
         styleField(accountField);
         form.add(accountField, gbc);
 
-        // 🔐 PIN Label
         gbc.gridx = 0; gbc.gridy = 1;
         JLabel pinLabel = new JLabel("PIN:");
         pinLabel.setForeground(Color.WHITE);
         form.add(pinLabel, gbc);
 
-        // 🔐 PIN Field
         gbc.gridx = 1;
         JPasswordField pinField = new JPasswordField(15);
         styleField(pinField);
         form.add(pinField, gbc);
 
-        // 🔘 Login Button
+    
         gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2;
         JButton loginBtn = new JButton("Login");
         styleButton(loginBtn);
@@ -76,7 +73,7 @@ public class ATMGUI {
 
         panel.add(form, BorderLayout.CENTER);
 
-        // 🚀 LOGIN LOGIC
+
         loginBtn.addActionListener(e -> {
 
             String acc = accountField.getText().trim();
@@ -91,11 +88,11 @@ public class ATMGUI {
             try {
                 Account account = authService.authenticate(acc, pin);
 
-                JOptionPane.showMessageDialog(frame, "Login Successful 🎉");
+                JOptionPane.showMessageDialog(frame, "Login Successful");
 
                 frame.dispose();
 
-                // 👉 OPEN DASHBOARD
+              
                 new DashboardUI(account, atmService, authService);
 
             } catch (AuthenticationException ex) {
@@ -107,7 +104,7 @@ public class ATMGUI {
         frame.setVisible(true);
     }
 
-    // 🎨 Styling
+  
     private static void styleField(JTextField field) {
         field.setPreferredSize(new Dimension(500, 45));
         field.setBorder(new LineBorder(new Color(59, 130, 246), 2, true));
