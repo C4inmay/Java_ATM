@@ -19,7 +19,7 @@ public class DBTransactionRepository {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, tx.getAccountNumber());
-            stmt.setString(2, tx.getType().name()); // ✅ ENUM → STRING
+            stmt.setString(2, tx.getType().name());
             stmt.setBigDecimal(3, tx.getAmount());
 
             stmt.executeUpdate();
@@ -44,7 +44,7 @@ public class DBTransactionRepository {
 
                 Transaction tx = new Transaction(
                         rs.getString("account_number"),
-                        TransactionType.valueOf(rs.getString("type")), // ✅ STRING → ENUM
+                        TransactionType.valueOf(rs.getString("type")),
                         rs.getBigDecimal("amount"),
                         null // timestamp optional for now
                 );
