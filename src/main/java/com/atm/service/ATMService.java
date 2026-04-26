@@ -25,12 +25,10 @@ public class ATMService {
         this.accountRepository = accountRepository;
     }
 
-    // 💰 CHECK BALANCE
     public BigDecimal getBalance(Account account) {
         return account.getBalance();
     }
 
-    // 💰 DEPOSIT
     public void deposit(Account account, BigDecimal amount) throws ATMOperationException {
         try {
             account.deposit(amount);
@@ -48,7 +46,6 @@ public class ATMService {
         }
     }
 
-    // 💸 WITHDRAW
     public void withdraw(Account account, BigDecimal amount) throws ATMOperationException {
         try {
             account.withdraw(amount);
@@ -66,7 +63,6 @@ public class ATMService {
         }
     }
 
-    // 📜 TRANSACTION HISTORY
     public List<Transaction> getTransactionHistory(Account account) {
         if (account.getTransactions() == null) {
             return Collections.emptyList();
@@ -84,7 +80,7 @@ public class ATMService {
 
         int size = allTransactions.size();
 
-        // return last 'count' transactions
+        
         return allTransactions.subList(
                 Math.max(0, size - count),
                 size
