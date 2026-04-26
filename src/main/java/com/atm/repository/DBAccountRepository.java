@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class DBAccountRepository implements AccountRepository {
 
-    // 🔍 FIND ACCOUNT BY ACCOUNT NUMBER
+   
     @Override
     public Optional<Account> findByAccountNumber(String accountNumber) {
 
@@ -42,7 +42,7 @@ public class DBAccountRepository implements AccountRepository {
         return Optional.empty();
     }
 
-    // 📋 GET ALL ACCOUNTS
+
     @Override
     public List<Account> findAll() {
 
@@ -68,7 +68,7 @@ public class DBAccountRepository implements AccountRepository {
         return list;
     }
 
-    // 💾 SAVE / UPDATE ACCOUNT
+    
     @Override
     public void save(Account account) {
 
