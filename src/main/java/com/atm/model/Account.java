@@ -57,27 +57,20 @@ public class Account {
         return failedLoginAttempts;
     }
 
-    // ✅ EXISTING
     public List<Transaction> getTransactions() {
         return transactions;
     }
-
-    // ⭐ ADD THIS (VERY IMPORTANT FIX)
     public List<Transaction> getTransactionHistory() {
         return transactions;
     }
 
-    // ✅ PIN VALIDATION
     public boolean verifyPin(String inputPin) {
         return this.pin.equals(inputPin);
     }
-
-    // ✅ RESET FAILED ATTEMPTS
     public void resetFailedLoginAttempts() {
         this.failedLoginAttempts = 0;
     }
 
-    // ✅ RECORD FAILED ATTEMPT
     public void recordFailedLoginAttempt(int maxAttempts) {
         failedLoginAttempts++;
 
@@ -86,7 +79,6 @@ public class Account {
         }
     }
 
-    // 💰 DEPOSIT
     public void deposit(BigDecimal amount) {
         if (amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Invalid deposit amount");
@@ -94,7 +86,6 @@ public class Account {
         balance = balance.add(amount);
     }
 
-    // 💸 WITHDRAW
     public void withdraw(BigDecimal amount) {
         if (amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Invalid withdraw amount");
@@ -107,7 +98,7 @@ public class Account {
         balance = balance.subtract(amount);
     }
 
-    // 🧾 ADD TRANSACTION
+  
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
     }
